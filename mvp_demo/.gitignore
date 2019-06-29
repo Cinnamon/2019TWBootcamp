@@ -124,3 +124,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# model weights
+mvp_writing_demo/bootcamp_serve_models
