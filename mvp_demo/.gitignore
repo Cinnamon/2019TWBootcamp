@@ -127,3 +127,4 @@ dmypy.json
 
 # model weights
 mvp_writing_demo/bootcamp_serve_models
+mvp_upload_demo/bootcamp_serve_models
