@@ -1,6 +1,8 @@
 import tensorflow as tf
+'''自己搭一個Densenet'''
 
-def Dense_Stage(inputs_,depth=64,repeat=1):
+'''定義Densenet 中的Dense Stage'''
+def Dense_Stage(inputs_, depth=64, repeat=1):
     for _ in range(repeat):
         X_input=inputs_
         X=tf.layers.conv2d(inputs_,depth,(1,1),strides=(1,1),activation=tf.nn.leaky_relu,**kwargs)
@@ -11,12 +13,15 @@ def Dense_Stage(inputs_,depth=64,repeat=1):
         X=tf.concat([X_input,X],3)
         inputs_=X
     return X
-def Transition_Layers(inputs_,size=[1,2,2,1],stride=[1,2,2,1],depth=128):
+
+'''定義Densenet 中的 Transition_Layers'''
+
+def Transition_Layers(inputs_, size=[1,2,2,1], stride=[1,2,2,1], depth=128):
     X=tf.layers.conv2d(inputs_,depth,(1,1),strides=(1,1),activation=tf.nn.leaky_relu,**kwargs)
     X=tf.nn.max_pool(X,size,stride,padding='SAME')
     X=tf.layers.batch_normalization(X)
     return X
-#計算總參數量
+'''計算參數量'''
 def get_num_params():
     total_parameters = 0
     for variable in tf.trainable_variables():
@@ -30,29 +35,13 @@ def get_num_params():
         # print(variable_parameters)
         total_parameters += variable_parameters
     return total_parameters
-def Train_Read(batch_,labels_,batch_batch,batch=100,k=4):
-    data_batch_x=[]
-    data_batch_y=[]
-    global random_choice
-    random_choice=rm.sample(batch_batch,int(batch/k))
-    for a in random_choice:
-        data_batch_x.append(batch_[a:a+k])
-        data_batch_y.append(labels_[a:a+k])
-    data_batch_x=np.array(data_batch_x).reshape(batch)
-    data_batch_y=np.array(data_batch_y).reshape(batch,1)
-    Batch_Read=[]
-    for path in data_batch_x:
-        img = image.load_img(path, target_size=(28, 28))
-        x = image.img_to_array(img)
-        x = np.expand_dims(x, axis=0)
-        x = preprocess_input(x)
-        x=x.reshape(28, 28, 3)
-        Batch_Read.append(x)
-    Batch_Read=np.array(Batch_Read)
-    return Batch_Read,data_batch_y
+
+
+'''開始搭建模型'''
 tf.reset_default_graph()
 kwargs = {'padding':'same', 'kernel_regularizer':tf.contrib.layers.l2_regularizer(0.003),}
-#'kernel_initializer':'glorot_uniform'沒設定就是了
+
+'''定義輸入層'''
 with tf.name_scope('input'):
     '''調整input size'''
     inputs = tf.placeholder(tf.float32, [None, 28, 28, 3])
@@ -62,7 +51,7 @@ with tf.name_scope('input'):
     y_true_soft=tf.placeholder(tf.float64, [None,13925])
 
 
-
+'''神經網路'''
 with tf.name_scope('stem'):
     X=tf.layers.conv2d(inputs,64,(3,3),strides=(1,1),activation=tf.nn.leaky_relu,name='stem_1',**kwargs)
     X=tf.layers.batch_normalization(X,name='stem_1_batch_normal')
@@ -185,4 +174,4 @@ with tf.name_scope('Total_Loss'):
 
 init=tf.global_variables_initializer()
 
-print('Model....Prepaering..Done')
+print('Model....Preparing..Done')
