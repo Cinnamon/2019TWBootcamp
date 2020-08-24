@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Gun Censorship</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+	</head>
+
+	<body>
+		<div id="top">
+			<img src="{{ url_for('static', filename='img/top.png') }}" id="logo">
+		</div>
+
+		<!-- Show uploaded image!-->
+		<!--<div class="container">-->
+			<!--<div id="show_img">-->
+				{% if upload_image %}
+					<img src="{{ upload_image }}" id="uploaded_img">
+				{% endif %}
+			
+		<div id="form_div">
+				<form id="upload_form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+					<label for='test'>
+						<div id="choose_img">Choose image</div>
+						<input type="file" name="file" accept="image/*" multiple="multiple" id="choose_img">
+					</label>
+					<input type="submit" value="Upload" id="upload_submit">
+				</form>
+				<!-- Predict the image button !-->
+				{% if upload_image %}
+					<form id="predict_form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="img_to_predict" value="{{ upload_image }}">
+						<input type="submit" value="Go!" id="predict_submit">
+					</form>
+				{% endif %}	
+		</div>
+		
+	</body>
+
+
+
+</html>

@@ -1,0 +1,7 @@
+-2019/7/19 scrum master: 許智和
+  - 已完成:
+    - 實際搭建並訓練 3個不同model (mobilenet/resnet/drn+SE)來比較效果
+  - 正在進行:
+    - 刪減dataset,並加入自行拍攝的垃圾以提升效果
+    - 結合model與opencv以及時做分類預測
+    - 繼續調整model

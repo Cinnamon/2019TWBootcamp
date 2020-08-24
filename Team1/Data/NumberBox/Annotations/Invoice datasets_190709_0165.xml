@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Images</folder>
+	<filename>Invoice datasets_190709_0165.jpg</filename>
+	<path>D:\Google Drive\Cinnamon AI\Data\NumberBox\Images\Invoice datasets_190709_0165.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1108</width>
+		<height>1478</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Number_New</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>335</xmin>
+			<ymin>719</ymin>
+			<xmax>806</xmax>
+			<ymax>846</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Date_New</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>167</xmin>
+			<ymin>567</ymin>
+			<xmax>864</xmax>
+			<ymax>713</ymax>
+		</bndbox>
+	</object>
+</annotation>

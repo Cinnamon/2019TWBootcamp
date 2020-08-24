@@ -1,0 +1,124 @@
+#top{
+	background-color: #2E4756;
+	/**width: 1420px;**/
+	height:110px;
+	
+	width:auto;
+	max-width: 100%;
+	margin-top: 0px;
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+	
+}
+
+#logo{
+	width:auto;
+	height:auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.container{
+	display:flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.center{
+	width:800px;
+}
+
+
+#show_img{
+  width:300px;
+  height:100px;
+  
+}
+
+#uploaded_img{
+  border:0;
+  margin:0;
+  padding:0;
+  /*width:auto;
+  height:auto;*/
+  max-width: 100px;
+  width:expression(this.width>100?"100px":this.width);
+  max-height: 100px;
+  height:expression(this.height>100?"100px":this.height);
+
+}
+
+#upload_form{
+	margin-left: 30%;
+}
+
+
+input[type="file"]{
+	position: absolute;
+  	left: 0;
+  	opacity: 0;
+  	top: 0;
+  	bottom: 0;
+  	width: 100%;
+}
+
+#choose_img{
+	
+  	height:35px;
+    width: 120px;
+    display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	background: #ccc;
+  	border: 3px dotted #bebebe;
+  	border-radius: 5px;
+  	color:#3C413C;
+  	font-family: 'Microsoft JhengHei';
+}
+
+label {
+  display: inline-block;
+  position: relative;
+  height: 56px;
+  width: 126px;
+  
+}
+
+
+#upload_submit{
+	background-color: #697268;
+    color: #E2E8DD;
+    width:80px;
+    height:40px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Microsoft JhengHei';
+    margin-left:5%;
+    padding-left: 10%;
+}
+
+#predict_submit{
+  background-color: #697268;
+    color: #E2E8DD;
+    width:80px;
+    height:40px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Microsoft JhengHei';
+    margin-left:50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
